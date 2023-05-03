@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Database\Eloquent\Model;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
  */
@@ -24,8 +24,8 @@ class ProductFactory extends Factory
             'quantity' => $this->faker->numberBetween(1, 10),
             'status' => $this->faker->randomElement([Product::PRODUCTO_DISPONIBLE, Product::PRODUCTO_NO_DISPONIBLE]),
             'image' => $this->faker->randomElement(['1.jpg', '2.jpg', '3.jpg']),
-            // 'seller_id' => User::inRandomOrder()->first()->id,
-            'seller_id' => User::all()->random()->id,
+            //'seller_id' => User::inRandomOrder()->first()->id,
+            'seller_id' => User::all()->id,
         ];
     }
 }
